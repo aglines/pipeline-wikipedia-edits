@@ -71,6 +71,7 @@ def add_col_is_edit(message):
 
 def convert_server_dt(message):
     # Yep, it only works if I import datetime inside the function
+    # I could A, spend hours finding out why, or B, ship code. I pick B!
     import datetime
     from datetime import datetime
     curr = message['datetime_server']
