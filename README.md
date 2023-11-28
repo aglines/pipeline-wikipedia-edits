@@ -1,18 +1,18 @@
-# Wikipedia Recent Edits Statistics
+# Wikipedia Recent Edits Pipeline
+
+- This pipeline is a side project which displays some of the skills I use in my day to day work.
+- For security, the files config.py and credentials.json are not included here.
+- Therefore this code will run successfully only if the user adds those files using their own Google Cloud credentials
+- The README here describes what the pipeline does, how I developed it, and some decisions I made whlie building it.
 
 ## Overview
 
 - A pipeline in Apache Beam / Python ingests event data from a stream: recent edits to articles on Wikipedia
-
 - Events are published to Pub/Sub topic in a Google Cloud project
-
 - Beam workflow reads msgs from the topic, performs some transformations, then writes to a BigQuery table
 
-- SQL statements in BigQuery process data to address some analysis questions
-
-- Looker Studio displays the results of this analysis
-
-- Code is run locally to ingest data & publish to Pub/Sub (ingest.py and pipeline.py)
+- (Coming next) SQL statements in BigQuery process data to address some analysis questions
+- (Coming next) Looker Studio displays the results of this analysis
 
 ## Development notes: Google Cloud and locally
 
@@ -22,7 +22,7 @@
     - auth credentials / roles for user account, service acct...
     - DataFlow job, region, BigQuery table...
 
-- Then I wrote a script (ingest.py) to get a corpus of messages into Pub/Sub
+- Then I wrote ingest.py to get a corpus of messages into Pub/Sub
 
 - To develop the pipeline I started with Dataflow Workbench: 
     - A Jupyter notebook there provides a way to interact with the runner
@@ -40,3 +40,4 @@
         - Add other various columns
     - Finally, it constructs the schema and writes each row to a BigQuery table
 
+- Coming next - SQL statements and analysis results
